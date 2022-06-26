@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Eshop.Application.Users.CreateUser
 {
-    [RequestHandler]
     public class CreateUserRequestHandler : IRequestHandler<CreateUserRequest, CreateUserRequestResponse>
     {
         private readonly ApplicationUserManager _applicationUserManager;
