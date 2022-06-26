@@ -1,0 +1,9 @@
+﻿.vs
+Eshop.Application/obj
+Eshop.Application/bin
+Eshop.Database/bin
+Eshop.Database/obj
+Eshop.Domain/bin
+Eshop.Domain/obj
+Eshop.Web.App/bin
+Eshop.Web.App/obj
