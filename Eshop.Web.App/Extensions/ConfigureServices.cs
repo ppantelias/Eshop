@@ -1,12 +1,12 @@
 ﻿using Eshop.Web.App.Filters;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
-using MediatR;
 using Eshop.Database.Helpers.AppStart;
+using Eshop.Application.Helpers.AppStart;
+using ConfigureDatabaseServices = Eshop.Database.Helpers.AppStart.ConfigureServices;
 
 namespace Eshop.Web.App.Extensions
 {
-    public static class ServiceRegister
+    public static class ConfigureServices
     {
         public static async Task Configure(this IServiceCollection services, ConfigurationManager configuration)
         {
@@ -18,13 +18,13 @@ namespace Eshop.Web.App.Extensions
 
         public static void AddServices(this IServiceCollection services, ConfigurationManager configuration)
             => services
-                .AddMediatR(Assembly.GetExecutingAssembly())
+                .AddApplicationServices()
                 .AddDatabaseServices(configuration)
                 .AddSwagger()
                 .AddApiControllers();
 
         public static async Task SeedRolesAndFullAdminAsync(this IServiceCollection services, ConfigurationManager configuration)
-            => await ConfigureServices.SeedRolesAndFullAdminAsync(services, configuration);
+            => await ConfigureDatabaseServices.SeedRolesAndFullAdminAsync(services, configuration);
 
         private static IServiceCollection AddSwagger(this IServiceCollection services)
             => services

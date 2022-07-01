@@ -8,8 +8,8 @@ namespace Eshop.Web.App.RequestMappers
         public static CreateUserRequest MapCreateUserRequest(this ContollerRequestModels.CreateUserRequest @this)
             => new()
             {
-                Firstname = @this.Firstname,
-                Lastname = @this.Lastname,
+                FirstName = @this.FirstName,
+                LastName = @this.LastName,
                 Email = @this.Email,
                 Password = @this.Password
             };

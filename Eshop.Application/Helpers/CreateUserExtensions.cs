@@ -9,13 +9,13 @@ namespace Eshop.Application.Helpers
         public static readonly string DefaultErrorCode = "DefaultError";
 
         public static bool IsNotValid(this CreateUserRequest @this)
-            => @this.Firstname.IsNullOrEmpty() || @this.Lastname.IsNullOrEmpty() || @this.Email.IsNullOrEmpty() || @this.Password.IsNullOrEmpty();
+            => @this.FirstName.IsNullOrEmpty() || @this.LastName.IsNullOrEmpty() || @this.Email.IsNullOrEmpty() || @this.Password.IsNullOrEmpty();
 
         public static ApplicationUser ToApplicationUser(this CreateUserRequest @this)
             => new ApplicationUser()
             {
-                Firstname = @this.Firstname,
-                Lastname = @this.Lastname,
+                FirstName = @this.FirstName,
+                LastName = @this.LastName,
                 Email = @this.Email
             };
     }

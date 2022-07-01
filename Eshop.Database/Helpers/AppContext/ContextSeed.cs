@@ -65,15 +65,15 @@ namespace Eshop.Database.Helpers.AppContext
         private static ApplicationUser BuildApplicationUserFromAppSettings(this IConfigurationSection seedFullAdminSection, string email, Guid userId)
         {
             var userName = seedFullAdminSection.GetSection(nameof(AppSettings.SeedFullAdmin.UserName)).Value;
-            var firstname = seedFullAdminSection.GetSection(nameof(AppSettings.SeedFullAdmin.Firstname)).Value;
-            var lastname = seedFullAdminSection.GetSection(nameof(AppSettings.SeedFullAdmin.Lastname)).Value;
+            var firstName = seedFullAdminSection.GetSection(nameof(AppSettings.SeedFullAdmin.Firstname)).Value;
+            var lastName = seedFullAdminSection.GetSection(nameof(AppSettings.SeedFullAdmin.Lastname)).Value;
 
             return new ApplicationUser
             {
                 Id = userId,
                 UserName = userName,
-                Firstname = firstname,
-                Lastname = lastname,
+                FirstName = firstName,
+                LastName = lastName,
                 Email = email,
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,

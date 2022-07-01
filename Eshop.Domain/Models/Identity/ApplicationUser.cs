@@ -14,10 +14,10 @@ namespace Eshop.Domain.Models.Identity
         { }
 
         [MaxLength(50)]
-        public string Firstname { get; set; }
+        public string FirstName { get; set; }
 
         [MaxLength(50)]
-        public string Lastname { get; set; }
+        public string LastName { get; set; }
 
         public virtual ICollection<ApplicationUserClaim> Claims { get; set; }
         public virtual ICollection<ApplicationUserLogin> Logins { get; set; }
