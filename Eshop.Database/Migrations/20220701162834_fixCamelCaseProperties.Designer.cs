@@ -4,6 +4,7 @@ using Eshop.Database.ApplicationDb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Eshop.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220701162834_fixCamelCaseProperties")]
+    partial class fixCamelCaseProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +36,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("CategoriesId");
 
-                    b.ToTable("BrandCategory", (string)null);
+                    b.ToTable("BrandCategory");
                 });
 
             modelBuilder.Entity("BrandCoupon", b =>
@@ -49,7 +51,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("CouponsId");
 
-                    b.ToTable("BrandCoupon", (string)null);
+                    b.ToTable("BrandCoupon");
                 });
 
             modelBuilder.Entity("BrandDiscount", b =>
@@ -64,7 +66,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("DiscountsId");
 
-                    b.ToTable("BrandDiscount", (string)null);
+                    b.ToTable("BrandDiscount");
                 });
 
             modelBuilder.Entity("CartCoupon", b =>
@@ -79,7 +81,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("CouponsId");
 
-                    b.ToTable("CartCoupon", (string)null);
+                    b.ToTable("CartCoupon");
                 });
 
             modelBuilder.Entity("CategoryCoupon", b =>
@@ -94,7 +96,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("CouponsId");
 
-                    b.ToTable("CategoryCoupon", (string)null);
+                    b.ToTable("CategoryCoupon");
                 });
 
             modelBuilder.Entity("CategoryDiscount", b =>
@@ -109,7 +111,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("DiscountsId");
 
-                    b.ToTable("CategoryDiscount", (string)null);
+                    b.ToTable("CategoryDiscount");
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>
@@ -124,7 +126,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("ProductsId");
 
-                    b.ToTable("CategoryProduct", (string)null);
+                    b.ToTable("CategoryProduct");
                 });
 
             modelBuilder.Entity("CouponCustomer", b =>
@@ -139,7 +141,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("CustomersId");
 
-                    b.ToTable("CouponCustomer", (string)null);
+                    b.ToTable("CouponCustomer");
                 });
 
             modelBuilder.Entity("CouponProduct", b =>
@@ -154,7 +156,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("ProductsId");
 
-                    b.ToTable("CouponProduct", (string)null);
+                    b.ToTable("CouponProduct");
                 });
 
             modelBuilder.Entity("CustomerLoyaltyMembership", b =>
@@ -169,7 +171,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("LoyaltyMembershipsId");
 
-                    b.ToTable("CustomerLoyaltyMembership", (string)null);
+                    b.ToTable("CustomerLoyaltyMembership");
                 });
 
             modelBuilder.Entity("DiscountProduct", b =>
@@ -184,7 +186,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("ProductsId");
 
-                    b.ToTable("DiscountProduct", (string)null);
+                    b.ToTable("DiscountProduct");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Brand", b =>
@@ -234,7 +236,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Brands", (string)null);
+                    b.ToTable("Brands");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Card", b =>
@@ -280,7 +282,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Cards", (string)null);
+                    b.ToTable("Cards");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Cart", b =>
@@ -351,7 +353,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Carts", (string)null);
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.CartProduct", b =>
@@ -416,7 +418,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("CartProducts", (string)null);
+                    b.ToTable("CartProducts");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Category", b =>
@@ -468,7 +470,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Coupon", b =>
@@ -537,7 +539,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Coupons", (string)null);
+                    b.ToTable("Coupons");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Customer", b =>
@@ -598,7 +600,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Discount", b =>
@@ -656,7 +658,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Discounts", (string)null);
+                    b.ToTable("Discounts");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Identity.ApplicationRole", b =>
@@ -919,7 +921,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Images", (string)null);
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.LoyaltyMembership", b =>
@@ -974,7 +976,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("LoyaltyMemberships", (string)null);
+                    b.ToTable("LoyaltyMemberships");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.MembershipTier", b =>
@@ -1032,7 +1034,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("MembershipTiers", (string)null);
+                    b.ToTable("MembershipTiers");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Order", b =>
@@ -1091,7 +1093,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.OrderStock", b =>
@@ -1142,7 +1144,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("OrderStocks", (string)null);
+                    b.ToTable("OrderStocks");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Origin", b =>
@@ -1188,7 +1190,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Origins", (string)null);
+                    b.ToTable("Origins");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.PaymentInfo", b =>
@@ -1253,7 +1255,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("PaymentInfos", (string)null);
+                    b.ToTable("PaymentInfos");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Product", b =>
@@ -1315,7 +1317,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.ShipmentInfo", b =>
@@ -1410,7 +1412,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("ShipmentInfos", (string)null);
+                    b.ToTable("ShipmentInfos");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.SoldProduct", b =>
@@ -1483,7 +1485,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("SoldProducts", (string)null);
+                    b.ToTable("SoldProducts");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.Stock", b =>
@@ -1532,7 +1534,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("Stock", (string)null);
+                    b.ToTable("Stock");
                 });
 
             modelBuilder.Entity("Eshop.Domain.Models.StockOnHold", b =>
@@ -1585,7 +1587,7 @@ namespace Eshop.Database.Migrations
 
                     b.HasIndex("UserUpdatedById");
 
-                    b.ToTable("StocksOnHold", (string)null);
+                    b.ToTable("StocksOnHold");
                 });
 
             modelBuilder.Entity("BrandCategory", b =>

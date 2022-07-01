@@ -3,7 +3,7 @@
 namespace Eshop.Web.App.Controllers.Base
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]/[action]")]
     public class BaseApiController : ControllerBase
     {
 

@@ -20,8 +20,8 @@ namespace Eshop.Application.Helpers
             => new ApplicationUserDto
             {
                 Id = user.Id,
-                FirstName = user.Firstname,
-                LastName = user.Lastname,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 UserName = user.UserName,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber
