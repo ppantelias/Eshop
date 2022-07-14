@@ -11,7 +11,8 @@ namespace Eshop.Web.App.RequestMappers
                 FirstName = @this.FirstName,
                 LastName = @this.LastName,
                 Email = @this.Email,
-                Password = @this.Password
+                Password = @this.Password,
+                ConfirmPassword = @this.ConfirmPassword
             };
     }
 }
