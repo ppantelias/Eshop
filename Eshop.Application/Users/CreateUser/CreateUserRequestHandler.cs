@@ -15,17 +15,17 @@ namespace Eshop.Application.Users.CreateUser
 
         public async Task<CreateUserRequestResponse> Handle(CreateUserRequest request, CancellationToken cancellationToken)
         {
-            if (request.IsNotValid())
-            {
-                return new CreateUserRequestResponse()
-                {
-                    Result = IdentityResult.Failed(new IdentityError()
-                    {
-                        Code = CreateUserExtensions.DefaultErrorCode,
-                        Description = CreateUserExtensions.ErrorMessage
-                    })
-                };
-            }
+            //if (request.IsNotValid())
+            //{
+            //    return new CreateUserRequestResponse()
+            //    {
+            //        Result = IdentityResult.Failed(new IdentityError()
+            //        {
+            //            Code = CreateUserExtensions.DefaultErrorCode,
+            //            Description = CreateUserExtensions.ErrorMessage
+            //        })
+            //    };
+            //}
 
             var user = request.ToApplicationUser();
 
