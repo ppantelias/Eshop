@@ -1,11 +1,13 @@
 ﻿using Eshop.Application.DtoModels;
+using Eshop.Application.Users.CreateUser;
 using Eshop.Domain.Models.Identity;
 
-namespace Eshop.Application.Helpers
+namespace Eshop.Application.Helpers.Users
 {
-    public static class GetAllUsersExtensions
+    public static class ApplicationUserExtensions
     {
-        public static IEnumerable<ApplicationUserDto> MapToDto(this IEnumerable<ApplicationUser> users){
+        public static IEnumerable<ApplicationUserDto> MapToDto(this IEnumerable<ApplicationUser> users)
+        {
             var usersDto = new List<ApplicationUserDto>();
 
             foreach (var user in users)
@@ -17,7 +19,7 @@ namespace Eshop.Application.Helpers
         }
 
         public static ApplicationUserDto MapToDto(this ApplicationUser user)
-            => new ApplicationUserDto
+            => new()
             {
                 Id = user.Id,
                 FirstName = user.FirstName,
@@ -25,6 +27,14 @@ namespace Eshop.Application.Helpers
                 UserName = user.UserName,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber
+            };
+
+        public static ApplicationUser ToApplicationUser(this CreateUserRequest @this)
+            => new()
+            {
+                FirstName = @this.FirstName,
+                LastName = @this.LastName,
+                Email = @this.Email
             };
     }
 }

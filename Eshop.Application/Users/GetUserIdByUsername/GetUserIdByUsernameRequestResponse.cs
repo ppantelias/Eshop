@@ -1,6 +1,8 @@
-﻿namespace Eshop.Application.Users.GetUserIdByUsername
+﻿using Eshop.Application.Abstract;
+
+namespace Eshop.Application.Users.GetUserIdByUsername
 {
-    public class GetUserIdByUsernameRequestResponse
+    public class GetUserIdByUsernameRequestResponse : AbstractResponse
     {
         public Guid? UserId { get; set; }
     }

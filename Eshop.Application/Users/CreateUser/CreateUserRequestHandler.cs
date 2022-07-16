@@ -1,7 +1,7 @@
-﻿using Eshop.Application.Helpers;
+﻿using Eshop.Application.Abstract;
+using Eshop.Application.Helpers.Users;
 using Eshop.Database.Managers;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 
 namespace Eshop.Application.Users.CreateUser
 {
@@ -15,18 +15,6 @@ namespace Eshop.Application.Users.CreateUser
 
         public async Task<CreateUserRequestResponse> Handle(CreateUserRequest request, CancellationToken cancellationToken)
         {
-            //if (request.IsNotValid())
-            //{
-            //    return new CreateUserRequestResponse()
-            //    {
-            //        Result = IdentityResult.Failed(new IdentityError()
-            //        {
-            //            Code = CreateUserExtensions.DefaultErrorCode,
-            //            Description = CreateUserExtensions.ErrorMessage
-            //        })
-            //    };
-            //}
-
             var user = request.ToApplicationUser();
 
             var response = await _applicationUserManager.CreateAsync(user);
@@ -38,7 +26,9 @@ namespace Eshop.Application.Users.CreateUser
 
             return new CreateUserRequestResponse()
             {
-                Result = response
+                Succeeded = response.Succeeded,
+                Errors = response.Errors?.Select(e => e.Description)?.ToArray(),
+                ResponseCode = response.Succeeded ? ResponseCode.Succeded : ResponseCode.Failed
             };
         }
     }
