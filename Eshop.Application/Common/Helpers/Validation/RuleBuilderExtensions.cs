@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Eshop.Application.Helpers.Validation
+namespace Eshop.Application.Common.Helpers.Validation
 {
     public static class RuleBuilderExtensions
     {

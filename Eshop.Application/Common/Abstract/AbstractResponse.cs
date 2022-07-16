@@ -1,6 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿using Eshop.Application.Common.Models.Enums;
+using System.Text.Json.Serialization;
 
-namespace Eshop.Application.Abstract
+namespace Eshop.Application.Common.Abstract
 {
     public abstract class AbstractResponse
     {

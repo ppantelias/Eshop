@@ -1,4 +1,4 @@
-﻿namespace Eshop.Application.Helpers
+﻿namespace Eshop.Application.Common.Helpers
 {
     public static class StringExtensions
     {

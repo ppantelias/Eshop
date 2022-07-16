@@ -1,4 +1,4 @@
-﻿namespace Eshop.Application.Abstract
+﻿namespace Eshop.Application.Common.Models.Enums
 {
     public enum ResponseCode
     {

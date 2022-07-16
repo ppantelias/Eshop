@@ -1,5 +1,5 @@
-﻿using Eshop.Application.Abstract;
-using Eshop.Application.Helpers.Users;
+﻿using Eshop.Application.Common.Helpers.Users;
+using Eshop.Application.Common.Models.Enums;
 using Eshop.Database.Managers;
 using MediatR;
 

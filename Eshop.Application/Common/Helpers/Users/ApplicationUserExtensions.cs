@@ -1,8 +1,8 @@
-﻿using Eshop.Application.DtoModels;
+﻿using Eshop.Application.Common.Models.Dtos;
 using Eshop.Application.Users.CreateUser;
 using Eshop.Domain.Models.Identity;
 
-namespace Eshop.Application.Helpers.Users
+namespace Eshop.Application.Common.Helpers.Users
 {
     public static class ApplicationUserExtensions
     {

@@ -1,10 +1,10 @@
-﻿using Eshop.Application.Helpers.PipelineBehaviors;
+﻿using Eshop.Application.Common.Behaviors;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace Eshop.Application.Helpers.AppStart
+namespace Eshop.Application.Common.Helpers.AppStart
 {
     public static class ConfigureServices
     {

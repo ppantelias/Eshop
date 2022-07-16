@@ -1,4 +1,4 @@
-﻿using Eshop.Application.Helpers.Validation;
+﻿using Eshop.Application.Common.Helpers.Validation;
 using FluentValidation;
 
 namespace Eshop.Application.Users.GetUserIdByUsername

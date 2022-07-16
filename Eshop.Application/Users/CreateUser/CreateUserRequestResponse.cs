@@ -1,4 +1,4 @@
-﻿using Eshop.Application.Abstract;
+﻿using Eshop.Application.Common.Abstract;
 
 namespace Eshop.Application.Users.CreateUser
 {

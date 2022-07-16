@@ -1,5 +1,5 @@
-﻿using Eshop.Application.Abstract;
-using Eshop.Application.DtoModels;
+﻿using Eshop.Application.Common.Abstract;
+using Eshop.Application.Common.Models.Dtos;
 
 namespace Eshop.Application.Users.GetAllUsers
 {

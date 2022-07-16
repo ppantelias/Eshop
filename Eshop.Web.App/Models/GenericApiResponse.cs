@@ -1,4 +1,4 @@
-﻿using Eshop.Application.Abstract;
+﻿using Eshop.Application.Common.Models.Enums;
 using System.Net;
 using System.Text.Json.Serialization;
 
