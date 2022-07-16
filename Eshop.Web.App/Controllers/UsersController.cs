@@ -1,10 +1,10 @@
 ﻿using Eshop.Application.Users.GetAllUsers;
 using Eshop.Web.App.Controllers.Base;
+using Eshop.Web.App.Models;
 using Eshop.Web.App.RequestMappers;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ContollerRequestModels = Eshop.Web.App.Models;
+using CreateUser = Eshop.Application.Users.CreateUser;
 
 namespace Eshop.Web.App.Controllers
 {
@@ -18,19 +18,22 @@ namespace Eshop.Web.App.Controllers
         }
 
         [HttpPost]
-        public async Task<IdentityResult> Create(
-            [FromBody] ContollerRequestModels.CreateUserRequest request,
+        public async Task<GenericApiResponse<CreateUser.CreateUserRequestResponse>> Create(
+            [FromBody] CreateUserRequest request,
             CancellationToken cancellationToken)
         {
-            var response = await _mediator.Send(request.MapCreateUserRequest(), cancellationToken);
+                var response = await _mediator.Send(request.MapCreateUserRequest(), cancellationToken);
 
-            return response.Result;
+                return new GenericApiResponse<CreateUser.CreateUserRequestResponse>(response);
+
         }
 
         [HttpGet]
-        public async Task<GetAllUsersRequestResponse> GetAll(CancellationToken cancellationToken)
+        public async Task<GenericApiResponse<GetAllUsersRequestResponse>> GetAll(CancellationToken cancellationToken)
         {
-            return await _mediator.Send(new GetAllUsersRequest(), cancellationToken);
+                var response =  await _mediator.Send(new GetAllUsersRequest(), cancellationToken);
+
+                return new GenericApiResponse<GetAllUsersRequestResponse>(response);
         }
     }
 }

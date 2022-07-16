@@ -1,25 +1,25 @@
 ﻿using FluentValidation;
 
-namespace Eshop.Application.Helpers.Validation
+namespace Eshop.Application.Common.Helpers.Validation
 {
     public static class RuleBuilderExtensions
     {
         public static IRuleBuilder<T, string> FirstName<T>(this IRuleBuilder<T, string> ruleBuilder)
             => ruleBuilder
-                .NotEmpty().WithMessage(ErrorMessages.User.FirstNameEmpty);
+                .NotEmpty().WithMessage(nameof(FirstName).IsRequired());
 
         public static IRuleBuilder<T, string> LastName<T>(this IRuleBuilder<T, string> ruleBuilder)
             => ruleBuilder
-                .NotEmpty().WithMessage(ErrorMessages.User.LastNameEmpty);
+                .NotEmpty().WithMessage(nameof(LastName).IsRequired());
 
         public static IRuleBuilder<T, string> Email<T>(this IRuleBuilder<T, string> ruleBuilder)
             => ruleBuilder
-                .NotEmpty().WithMessage(ErrorMessages.User.EmailEmpty)
+                .NotEmpty().WithMessage(nameof(Email).IsRequired())
                 .EmailAddress().WithMessage(ErrorMessages.User.EmailIsReal);
 
         public static IRuleBuilder<T, string> Password<T>(this IRuleBuilder<T, string> ruleBuilder)
             => ruleBuilder
-                .NotEmpty().WithMessage(ErrorMessages.User.PasswordEmpty)
+                .NotEmpty().WithMessage(nameof(Password).IsRequired())
                 .MinimumLength(6).WithMessage(ErrorMessages.User.PasswordLength)
                 .Matches("[A-Z]").WithMessage(ErrorMessages.User.PasswordUppercaseLetter)
                 .Matches("[a-z]").WithMessage(ErrorMessages.User.PasswordLowercaseLetter)
@@ -28,7 +28,11 @@ namespace Eshop.Application.Helpers.Validation
 
         public static IRuleBuilder<T, string> ConfirmPassword<T>(this IRuleBuilder<T, string> ruleBuilder, Func<T, string> password)
             => ruleBuilder
-                .NotEmpty().WithMessage(ErrorMessages.User.ConfirmPasswordEmpty)
+                .NotEmpty().WithMessage(nameof(ConfirmPassword).IsRequired())
                 .Must((instance, passwordValue) => password(instance).Equals(passwordValue)).WithMessage(ErrorMessages.User.ConfirmPasswordNotEqualPassword);
+
+        public static IRuleBuilder<T, string> Username<T>(this IRuleBuilder<T, string> ruleBuilder)
+            => ruleBuilder
+                .NotEmpty().WithMessage(nameof(Username).IsRequired());
     }
 }

@@ -1,4 +1,4 @@
-﻿using Eshop.Application.Helpers;
+﻿using Eshop.Application.Common.Models.Enums;
 using Eshop.Database.Managers;
 using MediatR;
 
@@ -15,13 +15,14 @@ namespace Eshop.Application.Users.GetUserIdByUsername
 
         public async Task<GetUserIdByUsernameRequestResponse> Handle(GetUserIdByUsernameRequest request, CancellationToken cancellationToken)
         {
-            if (request.IsNotValid())
-                return new GetUserIdByUsernameRequestResponse();
-
             var user = await _applicationUserManager.FindUserByNameAsync(request.Username);
 
             if (user == default || user == null)
-                return new GetUserIdByUsernameRequestResponse();
+                return new GetUserIdByUsernameRequestResponse()
+                {
+                    Succeeded = false,
+                    ResponseCode = ResponseCode.NotFound
+                };
 
             return new GetUserIdByUsernameRequestResponse()
             {

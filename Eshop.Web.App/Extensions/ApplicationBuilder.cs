@@ -1,4 +1,7 @@
-﻿using Eshop.Database.Helpers.AppStart;
+﻿using Eshop.Application.Common.Helpers.Tools;
+using Eshop.Database.Helpers.AppStart;
+using Microsoft.AspNetCore.Diagnostics;
+using System.Text;
 
 namespace Eshop.Web.App.Extensions
 {
@@ -33,5 +36,22 @@ namespace Eshop.Web.App.Extensions
 
         private static void ApplyMigrations(this IApplicationBuilder @this)
             => ConfigureApplication.ApplyMigrations(@this);
+
+        public static void ConfigureExceptionHandler(this IApplicationBuilder app)
+        {
+            app.UseExceptionHandler(appError =>
+            {
+                appError.Run(async context =>
+                {
+                    var errorFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    var exception = errorFeature.Error;
+                    context.Response.ContentType = "application/json";
+                    var errorDetails = exception.MapException();
+                    context.Response.StatusCode = errorDetails.StatusCode;
+
+                    await context.Response.WriteAsync(errorDetails.Serialize(), Encoding.UTF8);
+                });
+            });
+        }
     }
 }

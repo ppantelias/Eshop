@@ -1,4 +1,4 @@
-﻿namespace Eshop.Application.DtoModels
+﻿namespace Eshop.Application.Common.Models.Dtos
 {
     public class ApplicationUserDto
     {

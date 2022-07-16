@@ -1,4 +1,5 @@
-﻿using Eshop.Application.Helpers;
+﻿using Eshop.Application.Common.Helpers.Users;
+using Eshop.Application.Common.Models.Enums;
 using Eshop.Database.Managers;
 using MediatR;
 
@@ -13,14 +14,16 @@ namespace Eshop.Application.Users.GetAllUsers
             _applicationUserManager = applicationUserManager;
         }
 
-        public async Task<GetAllUsersRequestResponse> Handle(GetAllUsersRequest request, CancellationToken cancellationToken)
+        public Task<GetAllUsersRequestResponse> Handle(GetAllUsersRequest request, CancellationToken cancellationToken)
         {
             var response = _applicationUserManager.GetAllUsers();
 
-            return new GetAllUsersRequestResponse
+            return Task.FromResult(new GetAllUsersRequestResponse
             {
-                Users = response.MapToDto()
-            };
+                Users = response.MapToDto(),
+                Succeeded = true,
+                ResponseCode = ResponseCode.Succeded
+            });
         }
     }
 }

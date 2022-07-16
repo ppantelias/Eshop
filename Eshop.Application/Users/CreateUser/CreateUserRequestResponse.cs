@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Eshop.Application.Common.Abstract;
 
 namespace Eshop.Application.Users.CreateUser
 {
-    public class CreateUserRequestResponse
+    public class CreateUserRequestResponse : AbstractResponse
     {
-        public IdentityResult Result { get; set; }
     }
 }
