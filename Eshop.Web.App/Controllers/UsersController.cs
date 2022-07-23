@@ -22,18 +22,17 @@ namespace Eshop.Web.App.Controllers
             [FromBody] CreateUserRequest request,
             CancellationToken cancellationToken)
         {
-                var response = await _mediator.Send(request.MapCreateUserRequest(), cancellationToken);
+            var response = await _mediator.Send(request.MapCreateUserRequest(), cancellationToken);
 
-                return new GenericApiResponse<CreateUser.CreateUserRequestResponse>(response);
-
+            return new GenericApiResponse<CreateUser.CreateUserRequestResponse>(response);
         }
 
         [HttpGet]
         public async Task<GenericApiResponse<GetAllUsersRequestResponse>> GetAll(CancellationToken cancellationToken)
         {
-                var response =  await _mediator.Send(new GetAllUsersRequest(), cancellationToken);
+            var response = await _mediator.Send(new GetAllUsersRequest(), cancellationToken);
 
-                return new GenericApiResponse<GetAllUsersRequestResponse>(response);
+            return new GenericApiResponse<GetAllUsersRequestResponse>(response);
         }
     }
 }

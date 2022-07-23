@@ -14,6 +14,7 @@ namespace Eshop.Database.Interceptors
         {
             _dateTimeService = dateTimeService;
         }
+
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
             UpdateEntities(eventData.Context);

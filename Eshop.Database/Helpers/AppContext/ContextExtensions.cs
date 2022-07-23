@@ -6,7 +6,6 @@ namespace Eshop.Database.Helpers.AppContext
 {
     public static class ContextExtensions
     {
-
         private static readonly List<Action<IMutableEntityType>> _conventions = new();
 
         public static void AddRemovePluralizeConvention()

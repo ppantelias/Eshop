@@ -13,6 +13,7 @@ namespace Eshop.Domain.Models
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalPrice { get; set; }
+
         public int LoyaltyPointsUsed { get; set; }
         public DateTime? ExpiryDate { get; set; }
         public Guid OrderId { get; set; }

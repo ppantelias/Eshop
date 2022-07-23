@@ -12,27 +12,43 @@ namespace Eshop.Application.Common.Helpers.Tools
                 NotFoundException => new ErrorDetails()
                 {
                     StatusCode = (int)HttpStatusCode.NotFound,
-                    Message = @this.Message
+                    Error = new Error
+                    {
+                        Message = @this.Message
+                    }
                 },
                 UnauthorizedAccessException => new ErrorDetails()
                 {
                     StatusCode = (int)HttpStatusCode.Unauthorized,
-                    Message = @this.Message
+                    Error = new Error
+                    {
+                        Message = @this.Message
+                    }
                 },
                 ForbiddenAccessException => new ErrorDetails()
                 {
                     StatusCode = (int)HttpStatusCode.Forbidden,
-                    Message = @this.Message
+                    Error = new Error
+                    {
+                        Message = @this.Message
+                    }
                 },
                 ValidationException => new ErrorDetails()
                 {
                     StatusCode = (int)HttpStatusCode.BadRequest,
-                    Message = ((ValidationException)@this).Errors?.Serialize()
+                    Error = new Error
+                    {
+                        Message = @this.Message,
+                        Errors = ((ValidationException)@this).Errors
+                    }
                 },
                 _ => new ErrorDetails()
                 {
                     StatusCode = (int)HttpStatusCode.InternalServerError,
-                    Message = @this.Message
+                    Error = new Error
+                    {
+                        Message = @this.Message
+                    }
                 }
             };
     }

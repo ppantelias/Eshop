@@ -11,6 +11,7 @@
 
             // Password
             public const string PasswordLength = "Password must be at least 6 digits.";
+
             public const string PasswordUppercaseLetter = "Password must contain upper case letter.";
             public const string PasswordLowercaseLetter = "Password must contain lower case letter.";
             public const string PasswordDigit = "Password must contain digit.";

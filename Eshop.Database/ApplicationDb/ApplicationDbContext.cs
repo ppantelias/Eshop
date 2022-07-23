@@ -16,7 +16,7 @@ namespace Eshop.Database.ApplicationDb
         private readonly BaseEntitySaveChangesInterceptor _baseEntitySaveChangesInterceptor;
 
         public ApplicationDbContext(
-            DbContextOptions<ApplicationDbContext> options, 
+            DbContextOptions<ApplicationDbContext> options,
             BaseEntitySaveChangesInterceptor baseEntitySaveChangesInterceptor) : base(options)
         {
             _baseEntitySaveChangesInterceptor = baseEntitySaveChangesInterceptor;

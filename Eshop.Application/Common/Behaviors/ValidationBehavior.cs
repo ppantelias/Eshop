@@ -27,6 +27,7 @@ namespace Eshop.Application.Common.Behaviors
                 var failures = validationResults
                     .Where(r => r.Errors.Any())
                     .SelectMany(r => r.Errors)
+                    .Where(r => r != null)
                     .ToList();
 
                 if (failures.Any())

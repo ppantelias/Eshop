@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Eshop.Web.App.Extensions
 {
-    public static class ApplicationBuilder
+    public static class ConfigureApplicationBuilder
     {
         public static void Configure(this IApplicationBuilder @this)
             => @this

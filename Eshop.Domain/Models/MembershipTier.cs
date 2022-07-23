@@ -14,6 +14,7 @@ namespace Eshop.Domain.Models
 
         [Column(TypeName = "decimal(3,2)")]
         public decimal LoyaltyWeight { get; set; }
+
         public int LowerLimitPoints { get; set; }
         public int HigherLimitPoints { get; set; }
         public MembershipType Type { get; set; }
