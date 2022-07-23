@@ -7,20 +7,21 @@ namespace Eshop.Domain.Models
     {
         [MaxLength(30)]
         public string FirstName { get; set; }
-        
+
         [MaxLength(30)]
         public string LastName { get; set; }
-        
+
         [MaxLength(50)]
         public string Email { get; set; }
 
         [MaxLength(15)]
         [Column(TypeName = "varchar(15)")]
         public string PhoneNumber { get; set; }
-        
+
         [MaxLength(15)]
         [Column(TypeName = "varchar(15)")]
         public string MobileNumber { get; set; }
+
         public bool IsMember { get; set; }
         public ICollection<ShipmentInfo> ShipmentInfos { get; set; }
         public ICollection<Order> Orders { get; set; }

@@ -8,6 +8,7 @@ namespace Eshop.Application.Users.CreateUser
     public class CreateUserRequestHandler : IRequestHandler<CreateUserRequest, CreateUserRequestResponse>
     {
         private readonly ApplicationUserManager _applicationUserManager;
+
         public CreateUserRequestHandler(ApplicationUserManager applicationUserManager)
         {
             _applicationUserManager = applicationUserManager;

@@ -1,7 +1,7 @@
-﻿using Eshop.Web.App.Filters;
-using Microsoft.OpenApi.Models;
+﻿using Eshop.Application.Common.Helpers.AppStart;
 using Eshop.Database.Helpers.AppStart;
-using Eshop.Application.Common.Helpers.AppStart;
+using Eshop.Web.App.Filters;
+using Microsoft.OpenApi.Models;
 using ConfigureDatabaseServices = Eshop.Database.Helpers.AppStart.ConfigureServices;
 
 namespace Eshop.Web.App.Extensions

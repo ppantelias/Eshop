@@ -10,14 +10,15 @@ namespace Eshop.Web.App.Models
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string[] Errors { get; set; }
-        
+
         [JsonIgnore]
         public HttpStatusCode HttpStatusCode { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public T Result { get; set; }
-        
-        public GenericApiResponse() { }
+
+        public GenericApiResponse()
+        { }
 
         public GenericApiResponse(T result, bool succeeded = true, string[] errors = null)
         {
@@ -40,5 +41,6 @@ namespace Eshop.Web.App.Models
         }
     }
 
-    public class GenericApiResponse : GenericApiResponse<string> { }
+    public class GenericApiResponse : GenericApiResponse<string>
+    { }
 }

@@ -75,7 +75,7 @@ namespace Eshop.Domain.Infrastructure
         public async Task DeleteAsync(Guid id, Guid userDeletedById, CancellationToken cancellationToken = default)
         {
             var entity = await GetByIdAsync(id, cancellationToken);
-            
+
             if (!entity.Equals(default))
             {
                 entity.UserDeletedById = userDeletedById;
@@ -109,6 +109,7 @@ namespace Eshop.Domain.Infrastructure
                 case BaseEntityState.Deleted:
                     await DeleteAsync(id, userId, cancellationToken);
                     return true;
+
                 default:
                     var entity = await GetByIdAsync(id, cancellationToken);
 
@@ -128,6 +129,7 @@ namespace Eshop.Domain.Infrastructure
                 case BaseEntityState.Deleted:
                     Delete(id, userId);
                     return true;
+
                 default:
                     var entity = GetById(id);
 

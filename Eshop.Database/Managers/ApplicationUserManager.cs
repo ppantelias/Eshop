@@ -28,7 +28,7 @@ namespace Eshop.Database.Managers
         /// <param name="user">The <see cref="ApplicationUser"/> to be created.</param>
         /// <param name="roles">The given roles in form of: <see cref="IEnumerable{T}"/> where <see cref="{T}"/> is type of <see cref="string"/>.</param>
         /// <param name="password">The <see cref="string"/> password to create the user.</param>
-        /// <returns><see cref="IdentityResult"/> where <see cref="IdentityResult.Succeeded"/> is false if could not create user 
+        /// <returns><see cref="IdentityResult"/> where <see cref="IdentityResult.Succeeded"/> is false if could not create user
         /// or is true if user created succesfully with roles.</returns>
         public async Task<IdentityResult> CreateUserWithRolesAsync(ApplicationUser user, IEnumerable<string> roles, string password = null)
         {

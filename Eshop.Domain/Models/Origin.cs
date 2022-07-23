@@ -11,6 +11,7 @@ namespace Eshop.Domain.Models
         [MaxLength(5)]
         [Column(TypeName = "varchar(5)")]
         public string Abbreviation { get; set; }
+
         public ICollection<Brand> Brands { get; set; }
     }
 }

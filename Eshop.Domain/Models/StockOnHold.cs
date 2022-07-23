@@ -6,6 +6,7 @@ namespace Eshop.Domain.Models
     {
         [MaxLength(100)]
         public string SessionId { get; set; }
+
         public Stock Stock { get; set; }
         public int Quantity { get; set; }
         public DateTime ExpiryDate { get; set; }
